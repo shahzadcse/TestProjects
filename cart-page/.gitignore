@@ -1,0 +1,9 @@
+## generic ignore
+*~
+*.zip
+*.DS_Store
+Thumbs.db
+
+## specific ignore
+node_modules
+

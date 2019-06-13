@@ -1,0 +1,32 @@
+/* fonts */
+/* for icons */
+@import url('https://use.fontawesome.com/releases/v5.5.0/css/all.css');
+/* Droid Sans */
+@font-face {
+    font-family: 'droid_serifregular';
+    src: url('../../fonts/DroidSerif-Regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* Droid Sarif */
+@font-face {
+    font-family: 'droid_serifregular';
+    src:  url('../../fonts/DroidSerif-Regular-webfont.woff') format('woff');
+    
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'droid_serifbold';
+    src: url('../../fonts/DroidSerif-Bold-webfont.woff') format('woff');
+   
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
