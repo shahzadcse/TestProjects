@@ -1,0 +1,352 @@
+@import url(https://use.fontawesome.com/releases/v5.5.0/css/all.css);
+/* cart page style */
+html{ 
+    height:100%;
+ }
+
+body{ 
+    min-height:100%;
+    padding:0; 
+    margin:0;
+    position:relative;
+    background: #f0f0f0;  
+}
+body::after { 
+    content:''; 
+    display:block; 
+    height:100px; 
+}
+
+header { 
+    padding: 50px;
+    background: #141111;
+}
+
+/* typograph */
+h1, h2 , th {font-family: 'droid_serifbold';}
+p, span, tr, td  {   font-family: 'droid_serifregular'; }
+footer p {   font-family: 'droid_sansregular'; }
+p { 
+    line-height: 12px; 
+    font-size: 14px;
+}
+
+/* content sections  */
+section {
+    padding: 100px 0;
+}
+
+.container { 
+    padding-right:15px;
+    padding-left:15px;
+    margin-right:auto;
+    margin-left:auto;
+}
+
+/* cart table style */
+/* 
+Generic Styling, for Desktops/Laptops 
+*/
+table { 
+    
+    border-collapse: collapse; 
+    table-layout: fixed;
+    margin: 0 auto;
+  }
+  /* Zebra striping */
+  
+  tr:nth-of-type(odd) { 
+    background: #ddd; 
+  }
+  table thead  tr:nth-of-type(odd) { background: none; }
+  th { 
+   border-bottom: 2px solid #000;
+    color: #000; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px;     
+    text-align: left; 
+    min-height: 20px;
+  }
+  td:last-child, th:last-child { 
+     text-align: right;
+  }
+td:last-child i {
+     
+    position: absolute; 
+    cursor: pointer;
+    margin:3px 0 0 15px;
+    width:16px;
+    display: inline-block;
+    font-family: "Font Awesome 5 Free";
+    color: #323282;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    pointer-events: all;
+}
+
+/* input style */
+.input-group {
+    float:left;
+}
+ .item-count { 
+    width:30px;
+    height: 22px;
+    text-align: right; 
+}
+.button-group {
+    float: right;
+}
+.button-group button { 
+    height: 14px;
+    width: 16px;
+    background: #999;
+    border:none;
+    font-size: 0;
+    outline: none;
+    margin:0;
+    display: block;
+}
+.button-group button:focus { 
+    
+    background: #e9511d;
+}
+.button-group button.plus-item:after { 
+    content:"+";
+    position: absolute; 
+    cursor: pointer;
+    width:10px;
+    display: inline-block;
+    color: #fff;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    margin: -7px 0 0 -4px;
+    font-size: 12px;
+}
+.button-group button.minus-item:after { 
+    content:"-";
+    position: absolute; 
+    cursor: pointer;
+    width:10px;
+    display: inline-block;
+    color: #fff;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    margin: -7px 0 0 -4px;
+    font-size: 12px;
+}
+ 
+.summary { 
+    margin: 25px auto;
+}
+.subtotal, .vat , .total {
+    padding: 5px;
+} 
+.total span { font-family: 'droid_serifbold';}
+
+.subtotal span:last-child, 
+.vat span:last-child, 
+.total span:last-child {
+    float:right;
+}  
+
+
+
+.btn-buynow {
+    float:right;
+	-moz-box-shadow: 12px 10px 14px -8px #6b6b6b;
+	-webkit-box-shadow: 12px 10px 14px -8px #6b6b6b;
+	box-shadow: 12px 10px 14px -8px #6b6b6b;
+	background-color:#000066;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+    font-weight:bold;
+    margin:20px 0;
+	padding:15px 40px 15px 20px ;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #000000;
+}
+.btn-buynow:hover {
+	background-color:#e9511d;  
+}
+.btn-buynow:disabled { 
+    background-color: #989898;
+}
+.btn-buynow:active {
+	position:relative;
+	top:1px;
+}
+.btn-buynow:after {
+    position: absolute;
+    content:'\f101';
+    width:16px;
+    margin-left:5px;
+    display: inline-block;
+    font-family: "Font Awesome 5 Free";
+    color: #fff;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+
+}
+
+
+
+/* footer  */
+footer{ 
+    position:absolute; 
+    bottom:0; 
+    width:100%;  
+    background: #666;
+    border-top: 1px solid #000;
+    padding: 15px 0;
+  }
+ 
+footer p {
+    color:#fff;
+    font-size:12px;
+}
+
+
+/* fonts */
+/* for icons */
+/* Droid Sans */
+@font-face {
+    font-family: 'droid_serifregular';
+    src: url(fonts/69ad814d7e90a23e4d4d8a87ad43cec1.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* Droid Sarif */
+@font-face {
+    font-family: 'droid_serifregular';
+    src:  url(fonts/69ad814d7e90a23e4d4d8a87ad43cec1.woff) format('woff');
+    
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'droid_serifbold';
+    src: url(fonts/3c69ff012b2d4c6eed89d3d0bc5e2e22.woff) format('woff');
+   
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+/* Mobile devices (Mobiles, 320px and up) */
+@media (min-width:320px ) { 
+  .container{
+      width:300px
+  }
+  .summary, table {
+      width: 90%;
+  }
+}
+/* Mobile devices (Mobiles, 480px and up) */
+@media (min-width:480px ) { 
+  .container{
+      width:460px
+  }
+  .summary, table {
+      width: 90%;
+  }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 769px) { 
+    .container{
+        width:750px
+    }  
+    .summary, table {
+        width: 95%;
+    }
+ }
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width:992px ) { 
+    .container{
+        width:970px
+    }
+    .summary, table {
+        width: 95%;
+    }
+ }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width:1200px ) { 
+    .container{
+        width:1170px
+    }
+    .summary, table {
+        width: 100%;
+    }
+
+ }
+
+/* for table */
+@media screen and (max-width: 600px) {
+    table {
+      border: 0;
+    }
+    p {
+      line-height: 18px;
+      
+  }
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    
+    table tr {
+      border-bottom: 3px solid #ddd;
+      display: block;
+      margin-bottom: .625em;
+    }
+    
+    table td {
+      
+      display: block;
+      font-size: .8em;
+      text-align: right;
+    }
+    .input-group {
+      float:right;
+   }
+    table td::before {
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    
+    table td:last-child {
+      border-bottom: 0;
+    }
+  }

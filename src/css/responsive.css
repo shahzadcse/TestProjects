@@ -1,0 +1,96 @@
+/* Mobile devices (Mobiles, 320px and up) */
+@media (min-width:320px ) { 
+  .container{
+      width:300px
+  }
+  .summary, table {
+      width: 90%;
+  }
+}
+/* Mobile devices (Mobiles, 480px and up) */
+@media (min-width:480px ) { 
+  .container{
+      width:460px
+  }
+  .summary, table {
+      width: 90%;
+  }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 769px) { 
+    .container{
+        width:750px
+    }  
+    .summary, table {
+        width: 95%;
+    }
+ }
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width:992px ) { 
+    .container{
+        width:970px
+    }
+    .summary, table {
+        width: 95%;
+    }
+ }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width:1200px ) { 
+    .container{
+        width:1170px
+    }
+    .summary, table {
+        width: 100%;
+    }
+
+ }
+
+/* for table */
+@media screen and (max-width: 600px) {
+    table {
+      border: 0;
+    }
+    p {
+      line-height: 18px;
+      
+  }
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    
+    table tr {
+      border-bottom: 3px solid #ddd;
+      display: block;
+      margin-bottom: .625em;
+    }
+    
+    table td {
+      
+      display: block;
+      font-size: .8em;
+      text-align: right;
+    }
+    .input-group {
+      float:right;
+   }
+    table td::before {
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    
+    table td:last-child {
+      border-bottom: 0;
+    }
+  }

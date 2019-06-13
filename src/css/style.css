@@ -1,0 +1,222 @@
+/* cart page style */
+html{ 
+    height:100%;
+ }
+
+body{ 
+    min-height:100%;
+    padding:0; 
+    margin:0;
+    position:relative;
+    background: #f0f0f0;  
+}
+body::after { 
+    content:''; 
+    display:block; 
+    height:100px; 
+}
+
+header { 
+    padding: 50px;
+    background: #141111;
+}
+
+/* typograph */
+h1, h2 , th {font-family: 'droid_serifbold';}
+p, span, tr, td  {   font-family: 'droid_serifregular'; }
+footer p {   font-family: 'droid_sansregular'; }
+p { 
+    line-height: 12px; 
+    font-size: 14px;
+}
+
+/* content sections  */
+section {
+    padding: 100px 0;
+}
+
+.container { 
+    padding-right:15px;
+    padding-left:15px;
+    margin-right:auto;
+    margin-left:auto;
+}
+
+/* cart table style */
+/* 
+Generic Styling, for Desktops/Laptops 
+*/
+table { 
+    
+    border-collapse: collapse; 
+    table-layout: fixed;
+    margin: 0 auto;
+  }
+  /* Zebra striping */
+  
+  tr:nth-of-type(odd) { 
+    background: #ddd; 
+  }
+  table thead  tr:nth-of-type(odd) { background: none; }
+  th { 
+   border-bottom: 2px solid #000;
+    color: #000; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px;     
+    text-align: left; 
+    min-height: 20px;
+  }
+  td:last-child, th:last-child { 
+     text-align: right;
+  }
+td:last-child i {
+     
+    position: absolute; 
+    cursor: pointer;
+    margin:3px 0 0 15px;
+    width:16px;
+    display: inline-block;
+    font-family: "Font Awesome 5 Free";
+    color: #323282;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    pointer-events: all;
+}
+
+/* input style */
+.input-group {
+    float:left;
+}
+ .item-count { 
+    width:30px;
+    height: 22px;
+    text-align: right; 
+}
+.button-group {
+    float: right;
+}
+.button-group button { 
+    height: 14px;
+    width: 16px;
+    background: #999;
+    border:none;
+    font-size: 0;
+    outline: none;
+    margin:0;
+    display: block;
+}
+.button-group button:focus { 
+    
+    background: #e9511d;
+}
+.button-group button.plus-item:after { 
+    content:"+";
+    position: absolute; 
+    cursor: pointer;
+    width:10px;
+    display: inline-block;
+    color: #fff;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    margin: -7px 0 0 -4px;
+    font-size: 12px;
+}
+.button-group button.minus-item:after { 
+    content:"-";
+    position: absolute; 
+    cursor: pointer;
+    width:10px;
+    display: inline-block;
+    color: #fff;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    margin: -7px 0 0 -4px;
+    font-size: 12px;
+}
+ 
+.summary { 
+    margin: 25px auto;
+}
+.subtotal, .vat , .total {
+    padding: 5px;
+} 
+.total span { font-family: 'droid_serifbold';}
+
+.subtotal span:last-child, 
+.vat span:last-child, 
+.total span:last-child {
+    float:right;
+}  
+
+
+
+.btn-buynow {
+    float:right;
+	-moz-box-shadow: 12px 10px 14px -8px #6b6b6b;
+	-webkit-box-shadow: 12px 10px 14px -8px #6b6b6b;
+	box-shadow: 12px 10px 14px -8px #6b6b6b;
+	background-color:#000066;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+    font-weight:bold;
+    margin:20px 0;
+	padding:15px 40px 15px 20px ;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #000000;
+}
+.btn-buynow:hover {
+	background-color:#e9511d;  
+}
+.btn-buynow:disabled { 
+    background-color: #989898;
+}
+.btn-buynow:active {
+	position:relative;
+	top:1px;
+}
+.btn-buynow:after {
+    position: absolute;
+    content:'\f101';
+    width:16px;
+    margin-left:5px;
+    display: inline-block;
+    font-family: "Font Awesome 5 Free";
+    color: #fff;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+
+}
+
+
+
+/* footer  */
+footer{ 
+    position:absolute; 
+    bottom:0; 
+    width:100%;  
+    background: #666;
+    border-top: 1px solid #000;
+    padding: 15px 0;
+  }
+ 
+footer p {
+    color:#fff;
+    font-size:12px;
+}
+
