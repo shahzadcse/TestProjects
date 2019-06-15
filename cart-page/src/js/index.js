@@ -6,11 +6,12 @@ window.$ = jQuery;
 import '../css/style.css';
 import '../css/fonts.css';
 import '../css/responsive.css';
+import { displayCart } from './displayCart'; 
 // +++++++++++++++++++++ 
 // REVONIC Shopping Cart 
 // +++++++++++++++++++++
 
-var revonicCart = ( function(){
+export var revonicCart = ( function(){
     
   //******* private methods ************* //
   
@@ -168,57 +169,6 @@ return obj;
 
 
 
-// ++++++++++++++++++
-// display the cart  
-// ++++++++++++++++++
-function displayCart() {
-
-  var cartArray =  revonicCart.listCart();
-  var output = "";
-  var isValid = true;
-
-  for (var i in cartArray) {
-      output+= "<tr>"
-      + "<td scope='row' data-label='Product'>" + cartArray[i].name + "</td>"
-      +  "<td data-label='Price'> Â£" + cartArray[i].price + "</td>"
-      + "<td data-label='Qty'><div class='input-group'>"
-      + "<input type='number' min='1' max='10' class='item-count form-control' data-name='" + cartArray[i].name  + "' value='" + cartArray[i].qty  +"'>"
-      + "<div class='button-group'>"
-      + "<button class='plus-item' data-name='" + cartArray[i].name  + "'>+</button><button class='minus-item' data-name='" + cartArray[i].name  + "'>-</button>"
-      + "</div></td>"
-      + "<td data-label='Cost' > Â£" + Number(cartArray[i].price * cartArray[i].qty).toFixed(2)   + "<i class='fa fa-trash-alt delete-item' data-name='" + cartArray[i].name  + "'></i> </td>"           
-      + "</tr>";
-     
-  }
-
-
-  $(".show-cart").html(output);
-  $(".subtotal-cart").html(revonicCart.totalCart() );
-  // calculating tax... let 20% is fixed
-  revonicCart.totalTax = function () {      
-      return Number(((revonicCart.totalCart()*20)/100).toFixed(2));
-    }
-  $(".vat-amt").html(revonicCart.totalTax() );
-   // grand total 
-   revonicCart.grandTotal = function () {      
-      return Number((revonicCart.totalCart() + revonicCart.totalTax()).toFixed(2));
-    }
-
-  $(".total-cart").html(revonicCart.grandTotal() );
- 
-// Disabling the buy now button while cart is empty.
-      if ( output === '' )
-          isValid = false;
-  
-      if( isValid ) {
-          $('.btn-buynow').prop('disabled', false);
-      } else {
-          $('.btn-buynow').prop('disabled', true);
-      }
-      
-
-}
-
 // delete button functionality
 
 $('.show-cart').on("click", ".delete-item", function(event) {
@@ -254,32 +204,27 @@ $('.show-cart').on("change", ".item-count", function(event) {
 // display the cart on load. 
 displayCart();
 
-// checkout the cart 
 
-function checkOutCart() {
-
-var cartArray =  revonicCart.listCart();
-var json = JSON.stringify(cartArray);
-
-$.ajax({
-  type: 'POST',  
-  url:'',
-  contentType: "application/json; charset=utf-8",  
-  data:json,
- 
-  success:function(data, status, xhr){
-    // successful request; do something with the data    
-   alert('status: ' + status + ', data: ' + data);
-  },
-  error:function(jqXhr, textStatus, errorMessage){
-    // failed request; give feedback to user
-    $('.confirmation').html('<p class="error"><strong>Oops!</strong> Try that again in a few moments.</p>'+ errorMessage);
-  }
-});
-
-
+// checcout the cart 
+var checkOutCart = function () {
+  var cartArray = revonicCart.listCart();
+  var json = JSON.stringify(cartArray);
+ alert(json)
+  $.ajax({
+    type: 'POST',
+    url: '/',
+    contentType: "application/json; charset=utf-8",
+    data: json,
+    success: function (data, status, xhr) {
+      // successful request; do something with the data    
+      alert('status: ' + status + ', data: ' + data);
+    },
+    error: function (jqXhr, textStatus, errorMessage) {
+      // failed request; give feedback to user
+      $('.confirmation').html('<p class="error"><strong>Oops!</strong> Try that again in a few moments.</p>' + errorMessage);
+    }
+  });
 }
-
-
-
-
+$('.summary').on("click",'.btn-buynow', function () {
+     checkOutCart();
+});
