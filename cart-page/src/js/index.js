@@ -103,7 +103,8 @@ export var revonicCart = ( function(){
            }
           // if item qty is no longer available then removing the item from the cart  
           if ( cart[i].qty === 0) {
-              cart.splice(i, 1);
+              //cart.splice(i, 1);
+              return;
           }  
            break;
       } 
@@ -205,7 +206,7 @@ $('.show-cart').on("change", ".item-count", function(event) {
 displayCart();
 
 
-// checcout the cart 
+// checkout the cart 
 var checkOutCart = function () {
   var cartArray = revonicCart.listCart();
   var json = JSON.stringify(cartArray);

@@ -269,12 +269,13 @@ footer p {
 /* Mobile devices (Mobiles, 480px and up) */
 @media (max-width:480px ) { 
   .container{
-      width:460px
+      width:90%;
   }
   .summary, table {
       width: 90%;
   }
 }
+
 
 /* for table */
 @media screen and (max-width: 600px) {
