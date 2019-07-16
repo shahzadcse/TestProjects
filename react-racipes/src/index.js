@@ -4,4 +4,4 @@ const log = string => {
     console.log(string);
 };
 
-log("Hello World!");
+log("Hello World!!!!");
