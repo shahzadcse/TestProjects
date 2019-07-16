@@ -15,6 +15,10 @@ class App extends React.Component {
 }
 */}
 
+fetch( API_URL +  '/v1/recipes')
+ .then(res => res.json())
+ .then(json => console.table(json));
+
 {/* functional component */}
 const App = () => (
     <div> 
