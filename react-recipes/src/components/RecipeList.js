@@ -1,28 +1,22 @@
 import React from 'react';
 
-const RacipeList = (props) => (
+const RecipeList = (props) => (
     <div style={props.style}>
-       <h2> RacipeList</h2>
+       <h2> RecipeList</h2>
        <ul>
-           <li>
-                <span>Jalapeno Popper Grilled Cheese Sandwich</span>
-                <span>Sandwich</span>
-            </li>
-            <li>
-                <span>Creepy Halloween Skull Cupcakes</span>
-                <span>Desserts</span>
-            </li>
-            <li>
-                <span>Jalapeno Popper Grilled Cheese Sandwich</span>
-                <span>Sandwich</span>
-            </li>
-            <li>
-                <span>Creepy Halloween Skull Cupcakes</span>
-                <span>Desserts</span>
-            </li>
+           {props.recipes.map( recipe => (
+               <li 
+               key={recipe.id}
+               onClick={()=> props.onClick(recipe.id)}              
+               >
+               <span>{recipe.name}</span>
+               <span>{recipe.category}</span>
+           </li>
+           ))}
+            
 
        </ul>
     </div>
 );
 
-export default RacipeList;
+export default RecipeList;

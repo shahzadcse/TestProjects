@@ -21,6 +21,7 @@
     "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
+    "babel-preset-stage-0": "^6.24.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "whatwg-fetch": "^3.0.0"

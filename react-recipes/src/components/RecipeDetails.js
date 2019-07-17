@@ -1,21 +1,39 @@
 import React from 'react';
 
-const RacipeDetails = (props) => (
+const RacipeDetails = (props) => {
+    if(!props.recipe) {
+        return(
+        <p  style={props.style}>Please select the racipe first to check the details</p>
+        );
+    }
+
+
+    return ( 
     <div style ={props.style}>
-       <h2>Jalapeno Popper Grilled Cheese Sandwich</h2>
-            <img src="http://static.food2fork.com/Jalapeno2BPopper2BGrilled2BCheese2BSandwich2B12B500fd186186.jpg" />
+        <span>{props.recipe.category}</span>
+       <h2>{props.recipe.name}</h2>
+            <img src={props.recipe.image} />
+            <span>{props.recipe.calories}</span>
            <h4> Ingredients</h4>
            <ul>
-               <li>2 jalapeno peppers, cut in half lengthwise and seeded</li>
-               <li>2 slices sour dough bread</li>
-               <li>1 tablespoon butter, room temperature</li>
-               <li>2 tablespoons cream cheese, room temperature</li>
-               <li>1/2 cup jack and cheddar cheese, shredded</li>
-               <li>1 tablespoon tortilla chips, crumbled</li> 
-
-           </ul>
+               {props.recipe.ingredients.map( ingredients => (
+                   <li key={ingredients}>
+                        {ingredients}
+                    </li>
+               ) )}
+            </ul>
+            <h4> Steps </h4>
+           <ul>
+               {props.recipe.steps.map( steps => (
+                   <li  key={steps}>
+                        {props.recipe.steps} 
+                    </li>
+               ) )}
+            </ul>
  
-    </div>
-);
+    </div> 
+    );
+
+};
 
 export default RacipeDetails;
