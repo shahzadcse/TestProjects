@@ -18,7 +18,8 @@ class App extends React.Component {
             currentRecipe : null,
         };
 
-       this.onRecipeClick = this.onRecipeClick.bind(this);
+        {/* difference between Functional and class component. This line is for normal component */}
+       {/*this.onRecipeClick = this.onRecipeClick.bind(this);*/}
     }
 
     componentDidMount() {

@@ -16,7 +16,12 @@ module.exports = {
         rules : [
             {
                 test : /\.js$/,
+                exlude: /node_modules/,
                 loader: 'babel-loader'
+            },
+            {
+                test : /\.css$/,
+                loader: ['style-loader','css-loader','postcss-loader']
             },
             {
                 test : /\.(png|jpeg|jpg|gif)$/,
