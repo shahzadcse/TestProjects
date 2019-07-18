@@ -29,7 +29,9 @@ module.exports = {
             }
         ]
     },
-
+    devServer: {
+        historyApiFallback: true,
+    },
     plugins :[
 
         new HtmlWebpackPlugin ({
@@ -41,7 +43,4 @@ module.exports = {
             API_URL : JSON.stringify(process.env.API_URL)
         })
     ]
-
-
-
 };
