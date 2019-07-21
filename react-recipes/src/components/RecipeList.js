@@ -21,7 +21,7 @@ const RecipeList = props => (
 
 RecipeList.propTypes = {
   style: PropTypes.object,
-  recipes: PropTypes.object,
+  recipe: PropTypes.object,
   onClick: PropTypes.func,
 };
 
