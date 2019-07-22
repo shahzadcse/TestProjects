@@ -9,14 +9,15 @@ const RecipeListItem = ({
         }) => (
     
         <li 
-          className="py2 border-bottom border-bottom-dotted pointer" key={recipe.id}
+         key={recipe.id}
+          className="py2 border-bottom border-bottom-dotted pointer"
           onClick={() => onClick(recipe.id)}
         > 
           <span 
             className="mx2"
             onClick={ e => {
               e.stopPropagation();
-               onFavorited(recipe.id)}}
+              onFavorited(recipe.id)}}
             role="img"
             area-label="favorite"
           > { favorited  ? '✅' : '⬜'}

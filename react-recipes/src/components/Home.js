@@ -24,6 +24,7 @@ class Home extends React.Component {
   render() {
     const { currentRecipe } = this.state;
     const { recipes, favorites } = this.props.state;
+    
     return (
       <div>
         <main className="flex px4">
@@ -51,7 +52,7 @@ class Home extends React.Component {
 Home.propTypes = {
   toggleFavorite : PropTypes.func,
   recipes : PropTypes.object,
-  favorites : PropTypes.func,
+  favorites : PropTypes.array,
   state : PropTypes.object,
 }
 export default Home;

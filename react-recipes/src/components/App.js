@@ -30,12 +30,17 @@ class App extends React.Component {
     
     toggleFavorite = id => {          
         this.setState(({ favorites, ...state }) => {
-       
-        if( favorites.includes(id)) {            
-            return {...state, favorites: [favorites.filter( f => f.id !== id )]  }       
-        }       
-        return {...state, favorites: [...favorites, id] }
-
+              
+            const index = favorites.indexOf(id);
+            console.log(index)
+            if ( index > -1) {  
+                return {...state, favorites: favorites.filter(function checkIndex(index) {
+                             return index !== id;}) 
+                        }       
+            }
+            
+        return {...state, favorites: [...favorites, id]} 
+            
        });
     }
 
@@ -49,14 +54,16 @@ class App extends React.Component {
                         <Route
                         exact
                         path="/" 
-                        render={ () => (
+                        render={() => (
                                 <Home state={this.state} toggleFavorite={this.toggleFavorite} />
                             )} />
                         <Route
                         exact
                         path="/favorites"
-                        render={ () => (
-                            <Favorites state={this.state} toggleFavorite={this.toggleFavorite} />)} />
+                        render={() => (
+                            <Favorites state={this.state} toggleFavorite={this.toggleFavorite} />
+                            )} 
+                        />
                         <Route exact path="/contact" component={Contact} />
                         <Route component={NotFound} />
                     </Switch>
