@@ -7,6 +7,7 @@ import Home from './Home';
 import Favorites from './Favorites';
 import Contact from './Contact';
 import NotFound from './NotFound';
+import Recipe from './Recipe';
 
 
 class App extends React.Component {
@@ -32,11 +33,11 @@ class App extends React.Component {
         this.setState(({ favorites, ...state }) => {
               
             const index = favorites.indexOf(id);
-            console.log(index)
+          
             if ( index > -1) {  
                 return {...state, favorites: favorites.filter(function checkIndex(index) {
-                             return index !== id;}) 
-                        }       
+                    return index !== id;})
+                    }       
             }
             
         return {...state, favorites: [...favorites, id]} 
@@ -64,7 +65,8 @@ class App extends React.Component {
                             <Favorites state={this.state} toggleFavorite={this.toggleFavorite} />
                             )} 
                         />
-                        <Route exact path="/contact" component={Contact} />
+                        <Route exact path="/recipe/:id" component={Recipe} />
+                        <Route exact path="/contact" component={Contact} />                        
                         <Route component={NotFound} />
                     </Switch>
                 </main>

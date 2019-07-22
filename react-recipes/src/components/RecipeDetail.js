@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 
 const RecipeDetail = props => {
   if (!props.recipe) {
@@ -34,6 +35,9 @@ const RecipeDetail = props => {
           <li key={steps}>{steps}</li>
         ))}
       </ul>
+      <Link to={`/recipe/${props.recipe.id}`}>
+          See More...
+      </Link>
     </div>
   );
 };
