@@ -18,8 +18,8 @@ const Header = () => (
     <h1 className="h1">🍽 My Racipes</h1>
     <nav>
      <HeaderLink to="/" >Home</HeaderLink>
-     <HeaderLink to="/favorites" >Favorites</HeaderLink> 
-     <HeaderLink to="/contact" >Contact</HeaderLink> 
+     <HeaderLink to="/favorites/" >Favorites</HeaderLink> 
+     <HeaderLink to="/contact/" >Contact</HeaderLink> 
     </nav>
   </header>
 );

@@ -1,8 +1,22 @@
 import React from 'react';
+import RecipeList from './RecipeList';
+import PropTypes from 'prop-types';
 
-const Favorites = () => (
+const Favorites = ({ state, toggleFavorite }) => (
+        <div className="px4">
+                <h2 className="h2">Favorite Recipes</h2>
+                <RecipeList
+                recipes = {state.recipes.filter(r => state.favorites.includes(r.id))}
+                favorites = {state.favorites}
+                onFavorited = {toggleFavorite}                
+                />
+        </div>
+);      
 
-        <h2 className="px4">Favorites Recipes</h2>
-);
+Favorites.propTypes = {
+        recipes: PropTypes.array,
+        favorites: PropTypes.array,
+        toggleFavorite : PropTypes.func,
+};
 
 export default Favorites;
