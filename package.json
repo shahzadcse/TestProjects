@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "create-react-app": "^3.0.1",
+    "react-tracker": "^0.0.8"
+  }
+}
