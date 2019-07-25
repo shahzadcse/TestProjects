@@ -1,7 +1,7 @@
-import path from 'path';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 
-const log = (string) => {
-console.log("hi")
-}
+const MOUNTED_ELEMENT = document.getElementById("root");
 
-console.log("Shipment");
+ReactDOM.render(<App />, MOUNTED_ELEMENT);
