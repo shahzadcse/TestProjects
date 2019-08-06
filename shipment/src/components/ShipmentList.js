@@ -14,9 +14,9 @@ var renderTableHeader = function(props)  {
        const { id, name, cargo, mode, type, destination,origin, services, total, status, userId  } = shipment //destructuring
        return (
           <tr key={index}>
-             <td>{id}</td>
-              <td> {name}  </td>   
-              <td>
+             <td data-label='id'>{id}</td>
+              <td data-label='name'> {name}  </td>   
+              <td  data-label='cargo'>
               
               { cargo.length > 0 && cargo.map( (item, index) => {
                      return (
@@ -26,20 +26,20 @@ var renderTableHeader = function(props)  {
                      )
               })}
               </td>           
-              <td> {mode}  </td>                  
-              <td> {type}  </td>                 
-              <td>  {destination} </td>    
-              <td>{origin}</td> 
-              <td>{ services.length > 0 && services.map( (item, index) => {
+              <td data-label='mode'> {mode}  </td>                  
+              <td data-label='type'> {type}  </td>                 
+              <td data-label='destination'>  {destination} </td>    
+              <td data-label='origin'>{origin}</td> 
+              <td data-label='services'>{ services.length > 0 && services.map( (item, index) => {
                      return (
                       <div key={index}>                            
                         <p>{item.type}  </p>
                      </div>
                      )
               })}</td>      
-              <td>{total}   </td>                
-              <td> {status}  </td>               
-              <td>  {userId} </td>                  
+              <td data-label='total'>{total}   </td>                
+              <td data-label='status'> {status}  </td>               
+              <td data-label='User Id'>  {userId} </td>                  
           </tr>
        )
     })
@@ -48,10 +48,12 @@ var renderTableHeader = function(props)  {
 
 const ShipmentList = (props) => {
     return(
-    <div>
+    <div className="flex px2"> 
          { props.shipments &&  <table className='shipments'>
-                         <tbody>
-                             <tr>{renderTableHeader(props)}</tr>
+                         <thead>
+                         <tr>{renderTableHeader(props)}</tr>     
+                        </thead>   
+                         <tbody> 
                                 {renderTableData(props)}
                          </tbody>
                          </table>}       

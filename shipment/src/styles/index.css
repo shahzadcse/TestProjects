@@ -1,3 +1,103 @@
 @import "basscss";
 @import "basscss-colors";
 @import "basscss-background-colors";
+
+:root {
+    --gray: #ecf8fd;
+    --black: #222;
+    --lime: #fcf6c1;
+    --white: #fff;
+}
+
+* {
+    margin:0;
+    color:var (--black);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #fdfbe9;
+}
+
+header {
+    padding:50px;
+    background-color: var (--lime);
+}
+
+nav { float: right;}
+
+
+/* 
+Generic Styling, for Desktops/Laptops 
+*/
+table { 
+    width: 100%;
+    border-collapse: collapse; 
+    table-layout: fixed;
+    margin: 0 auto;
+  }
+  /* Zebra striping */
+  
+  tr:nth-of-type(odd) { 
+    background:var(--gray);
+  }
+  tr:nth-of-type(even) { 
+    background:var(--white);
+  }
+  table thead  tr:nth-of-type(odd) { background: none; }
+  th { 
+   border-bottom: 2px solid var(--black);
+    color: var(--black);
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px;     
+    text-align: left; 
+    min-height: 20px;
+  }
+   
+ /* for table */
+@media screen and (max-width: 600px) {
+    table {
+      border: 0;
+    }
+    p {
+      line-height: 18px;      
+  }
+    table thead {
+     /* border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;*/
+      display: none;
+    }
+    
+    table tr {
+      border-bottom: 3px solid var(--black);
+      display: block;
+      margin-bottom: .625em;
+    }
+    
+    table td {      
+      display: block;
+      font-size: .8em;
+      text-align: right;
+    }
+    .input-group {
+      float:right;
+   }
+    table td::before {
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    
+    table td:last-child {
+      border-bottom: 0;
+    }
+  }

@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from './components/Header';
-import ShipmentList from './components/ShipmentList';
+import ShipmentList from './ShipmentList';
  
-class App extends React.Component {
+class Home extends React.Component {
+
     constructor(props) {
         super(props);
         
@@ -46,7 +46,7 @@ class App extends React.Component {
         }else{ 
             return (
                 <div>
-                    <Header /> 
+                   
                     <ShipmentList shipments={shipments} />
                 </div>
         )
@@ -56,5 +56,4 @@ class App extends React.Component {
     };  
 }
 
-export default App;
-
+export default Home;

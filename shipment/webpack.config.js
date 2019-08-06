@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 require('dotenv').config();
 
 module.exports = {
+    mode: 'development',
     context: path.join(__dirname, 'src'),
     entry: ['whatwg-fetch', './index.js'],
     output:{
@@ -16,7 +17,8 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader:'babel-loader'
+               loader: "babel-loader"
+              
             },
             {
                 test: /\.css/,
@@ -25,6 +27,10 @@ module.exports = {
 
         ]
     },
+    devServer: {
+        historyApiFallback : true,
+    },
+
     plugins: [
         new HtmlWebpackPlugin({
             template: './index.html',
