@@ -6,23 +6,55 @@ import NotFound from './NotFound';
 import ShipmentDetails from './ShipmentDetails';
 import Contact from './Contact';
 
-const App = () => (
-        
-            <div>
-                    <BrowserRouter>
-                        <main>
-                            <Header /> 
-                            <Switch>
-                                <Route exact path="/" component={Home}></Route>
-                                <Route path="/shipments" component={ShipmentDetails}></Route>
-                                <Route path="/contact" component={Contact}></Route>
-                                <Route component={NotFound}></Route>
-                            </Switch>
-                        </main>
-                    </BrowserRouter>
-                
-            </div>
-       
-);
+
+class App extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+            this.state = {
+                onShipmentClick: null,
+                    };
+      
+    };
+      
+    componentDidMount() {
+        fetch(`${API_URL}/db/shipments`)
+          .then(res => res.json())
+          .then(shipments => {
+            this.setState({ shipments });
+          });
+    }
+
+    
+    onShipmentClick(id) {
+        fetch(`${API_URL}/db/shipments/${id}`)
+          .then(res => res.json())
+          .then(shipment => {
+            this.setState({ currentShipment: shipment });
+          });
+      };
+
+     
+        render() {
+
+            return (
+                <div>
+                        <BrowserRouter>
+                            <main>
+                                <Header /> 
+                                <Switch>
+                                    <Route exact path="/" component={Home}></Route>
+                                    <Route path="/shipments" component={ShipmentDetails}></Route>
+                                    <Route path="/contact" component={Contact}></Route>
+                                    <Route component={NotFound} ></Route>
+                                </Switch>
+                            </main>
+                        </BrowserRouter>
+                    
+                </div>
+            );
+}   
+}
 
 export default App;

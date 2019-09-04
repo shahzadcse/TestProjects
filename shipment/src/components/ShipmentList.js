@@ -12,8 +12,9 @@ var renderTableHeader = function(props)  {
  var  renderTableData = function(props) {
     return props.shipments.map((shipment, index) => {
        const { id, name, cargo, mode, type, destination,origin, services, total, status, userId  } = shipment //destructuring
+        
        return (
-          <tr key={index}>
+          <tr key={index} onClick={() => props.onShipmentClick(shipment)}>
              <td data-label='id'>{id}</td>
               <td data-label='name'> {name}  </td>   
               <td  data-label='cargo'>
