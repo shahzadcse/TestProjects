@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from "react-router-dom";
 
 var renderTableHeader = function(props)  {    
     let header = Object.keys(props.shipments[0])
@@ -14,8 +14,10 @@ var renderTableHeader = function(props)  {
        const { id, name, cargo, mode, type, destination,origin, services, total, status, userId  } = shipment //destructuring
         
        return (
-          <tr key={index} onClick={() => props.onShipmentClick(shipment)}>
-             <td data-label='id'>{id}</td>
+          <tr key={index} >
+               <td data-label='id'>
+                  <button onClick={() => props.onShipmentClick(shipment)}>{id}</button>  
+               </td>
               <td data-label='name'> {name}  </td>   
               <td  data-label='cargo'>
               

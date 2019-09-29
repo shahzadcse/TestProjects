@@ -19,16 +19,17 @@ class App extends React.Component {
     };
       
     componentDidMount() {
-        fetch(`${API_URL}/db/shipments`)
+        fetch(`${API_URL}/shipments`)
           .then(res => res.json())
           .then(shipments => {
+            
             this.setState({ shipments });
           });
     }
 
     
     onShipmentClick(id) {
-        fetch(`${API_URL}/db/shipments/${id}`)
+        fetch(`${API_URL}/shipments/${id}`)
           .then(res => res.json())
           .then(shipment => {
             this.setState({ currentShipment: shipment });
@@ -45,7 +46,8 @@ class App extends React.Component {
                                 <Header /> 
                                 <Switch>
                                     <Route exact path="/" component={Home}></Route>
-                                    <Route path="/shipments" component={ShipmentDetails}></Route>
+                                    {/* <Route path="/shipments/:id" component={ShipmentDetails}></Route> */}
+                                    <Route path="/shipments/:id" component={ShipmentDetails}></Route>
                                     <Route path="/contact" component={Contact}></Route>
                                     <Route component={NotFound} ></Route>
                                 </Switch>

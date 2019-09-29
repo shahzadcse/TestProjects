@@ -15,7 +15,7 @@ class Home extends React.Component {
             isEmptyShipment: true,          
         };
 
-      this.onShipmentClick = this.onShipmentClick.bind(this);
+      
 
     }
 
@@ -38,32 +38,7 @@ class Home extends React.Component {
             )        
            
     }
-
-    onShipmentClick(id) {
-        
-        fetch(`${API_URL}/db/shipments/${id}`)
-        .then(res => res.json())
-        .then((result) => {
-            this.setState({
-
-                isLoaded : true,
-                currentShipment : result,
-                isEmptyState: false,
-                onShipmentClick: true
-                
-            });
-            
-        },
-        // Handle error 
-        (error) => {
-            this.setState({
-                isLoaded: true,
-                error
-            })
-        },
-        )        
-       
-    }
+ 
       
     render() { 
 
@@ -76,12 +51,10 @@ class Home extends React.Component {
         }else{ 
             return (
                 <div>
-                   
-                    <ShipmentList 
+                 <ShipmentList 
                         shipments={shipments} 
-                        onClick={this.onShipmentClick}
+                        onShipmentClick={ (id) => this.onShipmentClick(id)}
                         />
-
                 </div>
         )
      } 
