@@ -1,5 +1,5 @@
 import React from 'react';
-
+import ShipmentList from './ShipmentList';
 class ShipmentDetails extends React.Component {
 
     
@@ -13,13 +13,14 @@ class ShipmentDetails extends React.Component {
             currentShipment : null,  
             isEmptyShipment: true,          
         }; 
-
+        alert('hi');
     }
     onShipmentClick(id) {
         
         fetch(`${API_URL}/shipments/${id}`)
         .then(res => res.json())
         .then((result) => {
+           console.log(result);
             this.setState({
 
                 isLoaded : true,
@@ -48,16 +49,14 @@ class ShipmentDetails extends React.Component {
         if(error){
             return <div>Error in loading</div>
         }else if (!isLoaded) {
-            return <div>Loading ...</div>
-        }else{ 
-            return (
-                <div>
-                   
-                    
+            return  <div>  
+               {this.state.currentShipment && <ShipmentList 
+                    shipments={shipments.id} details={this.state.currentShipment}           
+               />} </div>
 
-                </div>
-        )
-     } 
+               
+
+        } 
          
  
     };

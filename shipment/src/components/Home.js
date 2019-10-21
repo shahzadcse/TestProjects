@@ -1,5 +1,6 @@
 import React from 'react';
 import ShipmentList from './ShipmentList';
+import ShipmentDetails from './ShipmentDetails';
 
  
 class Home extends React.Component {
@@ -55,6 +56,7 @@ class Home extends React.Component {
                         shipments={shipments} 
                         onShipmentClick={ (id) => this.onShipmentClick(id)}
                         />
+                 
                 </div>
         )
      } 

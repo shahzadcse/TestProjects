@@ -47,8 +47,8 @@ class App extends React.Component {
                                 <Switch>
                                     <Route exact path="/" component={Home}></Route>
                                     {/* <Route path="/shipments/:id" component={ShipmentDetails}></Route> */}
-                                    <Route path="/shipments/:id" component={ShipmentDetails}></Route>
-                                    <Route path="/contact" component={Contact}></Route>
+                                    <Route exact path="/shipments/:id" component={ShipmentDetails}></Route>
+                                    <Route exact path="/contact" component={Contact}></Route>
                                     <Route component={NotFound} ></Route>
                                 </Switch>
                             </main>

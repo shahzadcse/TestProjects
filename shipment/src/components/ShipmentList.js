@@ -16,7 +16,7 @@ var renderTableHeader = function(props)  {
        return (
           <tr key={index} >
                <td data-label='id'>
-                  <button onClick={() => props.onShipmentClick(shipment)}>{id}</button>  
+                  <Link to={`/shipments/${id}`}>{id}</Link>  
                </td>
               <td data-label='name'> {name}  </td>   
               <td  data-label='cargo'>
