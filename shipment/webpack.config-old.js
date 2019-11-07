@@ -10,10 +10,8 @@ module.exports = {
     entry: ['whatwg-fetch', './index.js'],
     output:{
         path: path.resolve(__dirname, 'dist'),
-        filename:'main.js',
-        publicPath: '/'
+        filename:'./main.js'
     },
-    devtool: 'inline-source-map',
     module: {
         rules: [
             {

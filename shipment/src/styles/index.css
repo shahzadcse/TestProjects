@@ -101,3 +101,22 @@ table {
       border-bottom: 0;
     }
   }
+
+  .shipments-details {
+ 
+margin: 0 10px;
+  }
+
+  a.back-to-home {
+    text-align: center; 
+    margin: 10px auto;
+   display: block;
+   width: 150px;
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-weight: 300;
+    text-decoration: none;
+    color: #fff;
+    background: grey;
+    cursor: pointer;
+  }
