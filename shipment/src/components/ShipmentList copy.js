@@ -48,20 +48,14 @@ import { Link } from "react-router-dom";
     })
  }
 
-class ShipmentList extends Component {
-   state = {
-      search: ""
-   } 
-}
- 
 
 const ShipmentList = (props) => {
     return(
     <div className="container"> 
-         <div className="clearfix lg-col-12 px2 right">
-            <input type="text" label="Search" icon="search"   />
-         </div>
-         <div class="px2 clearfix lg-col-12">
+          <div className="clearfix lg-col-12 px2 right">
+             <input type="text" label="Search" icon="search"   />
+         </div> 
+         <div class="px2 clearfix lg-col-12">  
          { props.shipments &&  <table className='shipments'>
                          <thead>
                          {/* <tr>{renderTableHeader(props)}</tr>      */}

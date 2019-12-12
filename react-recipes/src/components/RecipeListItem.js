@@ -22,7 +22,7 @@ const RecipeListItem = ({
             role="img"
             area-label="favorite"
           >
-                  { favorited ? '✅' : '⬜' }
+                  { favorited ? '✅' : '⬜' }                  
           </span>
           <span>{recipe.name}</span>
           <span>
