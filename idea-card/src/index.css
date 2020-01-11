@@ -18,11 +18,13 @@ button  {
 }
 
 div.idea-card {
- 
-  margin: 0 10px;
+  padding:  0;
+  margin: 20px 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
+  border-radius: 10px;
+
 }
-.idea-card button {   margin: 10px; min-width: 100px; display: inline;}
+.idea-card button {   margin: 10px  ; min-width: 100px; display: inline;}
 
 .idea-card h3 { text-transform: uppercase; color:#ad0b0b}
