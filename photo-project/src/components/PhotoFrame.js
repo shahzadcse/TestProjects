@@ -4,7 +4,7 @@ import Photo from './Photo'
 class PhotoFrame extends Component {
     render(){
         return (
-            <div>
+            <div className="photo-grid">
                 {this.props.photoBlock.map((singlephoto, index)=> <Photo key={index}  finalPhoto={singlephoto} />)}
              </div>
         );
