@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 //creating array for elements
-const tasks = ["Get up early in the morning", "Go to Gym", "Start your day"]
+//const tasks = ["Get up early in the morning", "Go to Gym", "Start your day"]
   
 class Title extends Component {
     render() {
@@ -15,7 +15,7 @@ class Task extends Component {
     render() {
         return (
             <ol>
-                {tasks.map((task, index) => <li key={index}>{task}</li>)}
+                {this.props.tasks.map((task, index) => <li key={index}>{task}</li>)}
             </ol>
         )
     }
@@ -26,7 +26,9 @@ class Main extends Component {
         return (
             <div>
                 <Title />
-                <Task />
+                <Task tasks={["Get up early in the morning", "Go to Gym"]} /> 
+                <Task tasks={["Got to Gym", "Start your Work"]} /> 
+
             </div>
         );
     }
