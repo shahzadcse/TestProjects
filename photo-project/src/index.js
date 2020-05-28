@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+//creating array for elements
+const tasks = ["Get up early in the morning", "Go to Gym","Start your day"  ]
 
 const element = React.createElement("ol", null,
-    React.createElement("li", null, "Get up early in the morning"),
-    React.createElement("li", null, "Go to Gym"),
-    React.createElement("li", null, "Start your day")    
+    (tasks).map( ( task ) => React.createElement("li", null, task)  )
 );
 
 
