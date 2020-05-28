@@ -27,10 +27,14 @@ class Main extends Component {
                 imageLink: "https://picsum.photos/800/600?image=85"
                 }]
         }
+        this.removePhotos = this.removePhotos.bind(this);
     } 
     
     removePhotos(photoremoved) {
         console.log(photoremoved.description);
+        this.setState( (state) => ({
+            allPhotos : state.allPhotos.filter((photo)=> photo !==photoremoved)
+        } ) )
     }
 
     render() {
