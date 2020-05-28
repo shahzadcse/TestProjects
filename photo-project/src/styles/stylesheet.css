@@ -36,6 +36,14 @@ h1 a {
     flex-grow:1;
 }
 
+figcaption { 
+		font-size: 1.6rem;
+		line-height: 1.5; 
+		text-transform: uppercase;
+		text-align: center;
+		padding: 5px 0;
+}
+
 .figure .single-photo {
 	flex-basis: calc(33.333% - 4rem);
 	flex-grow: 1;
