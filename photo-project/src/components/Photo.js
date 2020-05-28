@@ -7,7 +7,11 @@ function Photo(props) {
             <img className="photo" src={frame.imageLink} alt="{frame.description}" />
             <figcaption>{frame.description}</figcaption>
             <div className="button-container">
-                <button className="button">Remove</button>
+                <button className="button" onClick={
+                    () => {
+                        props.onPhotoRemove(frame)
+                    }
+                }>Remove</button>
             </div>
         </figure>
     );

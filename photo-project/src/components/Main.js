@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PhotoFrame from './PhotoFrame'
 import Title from './Title'
  
+
  
 class Main extends Component {
 
@@ -26,12 +27,17 @@ class Main extends Component {
                 imageLink: "https://picsum.photos/800/600?image=85"
                 }]
         }
+    } 
+    
+    removePhotos(photoremoved) {
+        console.log(photoremoved.description);
     }
+
     render() {
         return (
             <div>
                 <Title title={"Photo App"} /> 
-                <PhotoFrame photoBlock={this.state.allPhotos} />
+                <PhotoFrame photoBlock={this.state.allPhotos} onRemovePhoto = {this.removePhotos} />
             </div>
         );
     }
