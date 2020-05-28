@@ -7,6 +7,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  box-sizing: border-box;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -16,15 +19,19 @@ label, input { float: left; margin: 5px;}
 button  { 
   margin:10px 5px;
 }
-
+ 
 div.idea-card {
-  padding:  0;
-  margin: 20px 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: transparent;
+  background-image: linear-gradient(to bottom, rgba(30, 87, 153, 0.2) 0%, rgba(125, 185, 232, 0) 100%);
+  background-repeat: repeat;
+  border-radius:10px;
+  padding: 5px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
-  border-radius: 10px;
-
+  justify-content: space-between;
+ min-width: 323px;
 }
 .idea-card button {   margin: 10px  ; min-width: 100px; display: inline;}
 
-.idea-card h3 { text-transform: uppercase; color:#ad0b0b}
+.idea-card h3 {   text-transform: uppercase; color:#ad0b0b}
+.idea-card em {display: block;  }

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import Card from './Card.js';
 
+ 
 class App extends Component {
 
   constructor(props){
@@ -9,7 +11,7 @@ class App extends Component {
     // this.handleEdit = this.handleEdit.bind(this);
    
       this.state = {
-        title : "React Crud App",
+        headingtitle : "React Crud App",
         act:0,
         index: '',
         data : []
@@ -39,7 +41,7 @@ componentDidMount(){
 
   }
   this.setState({ data : this.cardData})
-  this.refs.title.focus();
+  this.refs.cdate.focus();
   
 }
 
@@ -53,7 +55,11 @@ handleSubmit =(e)=> {
      let title = this.refs.title.value;
      let desc = this.refs.desc.value;
 
-       
+      if(cdate === "" || title === "" || desc === "" ) {
+          alert("Field can't be blank");
+          return false;
+      }
+      
      if(this.state.act === 0){
        //add new 
       carddata.push({
@@ -68,7 +74,8 @@ handleSubmit =(e)=> {
         carddata[index].cdate = cdate;
         carddata[index].title = title;
         carddata[index].desc = desc
-         
+        this.refs.cdate.readOnly = false;
+        this.refs.formbtn.innerHTML = "Add New Idea";
      }
 
  
@@ -80,7 +87,7 @@ handleSubmit =(e)=> {
     });
     
      this.refs.myForm.reset();
-    this.refs.title.focus();
+    this.refs.cdate.focus();
 } 
 
 handleRemove = (i) => {
@@ -89,17 +96,16 @@ handleRemove = (i) => {
   if(confirmation) {
   let data = this.state.data;
   data.splice(i,1);
+
   this.setState({
     data : data
   }, () => {
     sessionStorage.setItem('cards',JSON.stringify(this.state.data));
     });
   }
-  else{
-    return false;
-  }
+
   this.refs.myForm.reset();
-  this.refs.title.focus();
+  this.refs.cdate.focus();
 
 }
 
@@ -108,58 +114,44 @@ handleEdit = (i) => {
   this.refs.cdate.value =  data.cdate;
   this.refs.title.value =  data.title;
   this.refs.desc.value =  data.desc;
-
+  this.refs.cdate.readOnly = true;
+  this.refs.formbtn.innerHTML = "Edit the Idea";
   this.setState({     
     act : 1,
     index : i
   })
  
   this.refs.title.focus();
-  
-}
-
-handleDisplay = ( cardData) => {
-   
-  if(cardData) {
-    return (
-      cardData.map((data, i) => 
-        <div className="idea-card col-3 col-xs-6 " key={i}>
-            <h3>{data.title}</h3>
-            <p>{data.desc}</p>  
-           <em>{data.cdate}</em> 
-          <button className="btn btn-warning"  onClick={()=>this.handleEdit(i)}>Edit</button> 
-          <button className="btn btn-danger"  onClick={()=>this.handleRemove(i)}>Remove</button> 
-        </div> )
-    )
-  }
-
-}
+    
+} 
+ 
+ 
 
  render(){
-  let cardData = this.state.data;
-  
-    return( 
+
+  let cardData = this.state.data;  
+
+    return(      
+      
       <div className="container">
-            <h2>{this.state.title}</h2>
+            <h2>{this.state.headingtitle}</h2>
         <div className="row justify-content-md-center">
           <div className="col-md-auto">
-          <form ref="myForm">
+          <form ref="myForm"  method="post" required> 
           <div className="form-group">
           <label >Date</label>
-            <input required  type="text" ref="cdate" name="cdate"  className="form-control"  placeholder="Date" defaultValue={Date()} />
+            <input   type="date"    ref="cdate" name="cdate" className="form-control"  placeholder="Date"   />
             <label >Idea Title</label>
-            <input required  type="text" ref="title" name="title"  className="form-control" placeholder="Idea Title"   />
+            <input   type="text" ref="title" name="title"  className="form-control" placeholder="Idea Title"   />
             <label >Idea Description</label>
             <input type="textarea" ref="desc" name="desc"  className="form-control " placeholder="Idea description"     />
-             <button className="btn btn-primary" onClick={(e)=>this.handleSubmit(e)}>Add New Idea</button> 
+             <button ref="formbtn" className="btn btn-primary" onClick={(e)=>this.handleSubmit(e)}>Add New Idea</button> 
            </div>
 
           </form>
           </div>
-          <div className="row">
-           
-            { this.handleDisplay(cardData)}
-
+          <div className="row"> 
+             <Card card={cardData} /> 
           </div>
          
           </div>
