@@ -4,8 +4,11 @@ import PropTypes from 'prop-types'
 
 function PhotoFrame(props) {
     return (
-        <div className="photo-grid">
-            {props.photoBlock.map((singlephoto, index) => <Photo key={index} finalPhoto={singlephoto} onRemovePhoto ={props.onRemovePhoto} />)}
+        <div>
+            <button className="addIcon">+</button>
+            <div className="photo-grid">
+                {props.photoBlock.map((singlephoto, index) => <Photo key={index} finalPhoto={singlephoto} onRemovePhoto ={props.onRemovePhoto} />)}
+            </div>
         </div>
     );
 } 

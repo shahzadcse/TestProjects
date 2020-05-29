@@ -137,7 +137,8 @@ button:hover,.button:hover, button:focus, .button:focus {
     padding:40px;
     background:url("https://image.flaticon.com/icons/svg/14/14232.svg") center no-repeat;
     background-size:contain;
-    border:none;
+	border:none;
+	font-size: 0;
 }
 .speech-bubble {
 	background: url("https://d30y9cdsu7xlg0.cloudfront.net/png/51904-200.png") center no-repeat;
