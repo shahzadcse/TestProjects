@@ -41,7 +41,7 @@ class Main extends Component {
         return (
             <div>
                 <Title title={"Photo App"} /> 
-                <PhotoFrame photoBlock={this.state.allPhotos} onRemovePhoto = {this.removePhotos} />
+                <PhotoFrame photoBlock={this.state.allPhotos} onRemovePhoto={this.removePhotos} />
             </div>
         );
     }
