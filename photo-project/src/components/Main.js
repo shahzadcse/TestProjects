@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PhotoFrame from './PhotoFrame'
 import Title from './Title'
 import AddPhoto from './AddPhoto'
+import { Route } from 'react-router-dom'
 
 class Main extends Component {
 
@@ -39,9 +40,14 @@ class Main extends Component {
     render() {
         return (
             <div>
-                <Title title={"Photo App"} />
-                <PhotoFrame photoBlock={this.state.allPhotos} onRemovePhoto={this.removePhotos} />
-                <AddPhoto />
+                <Route exact path="/" render={() => (
+                    <div>
+                        <Title title={"Photo App"} />
+                        <PhotoFrame photoBlock={this.state.allPhotos} onRemovePhoto={this.removePhotos} />
+                    </div>
+                )} />
+                 <Route exact path="/AddPhoto" component={AddPhoto} />
+                
             </div>
         );
     }

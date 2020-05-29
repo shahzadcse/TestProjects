@@ -1,11 +1,12 @@
 import React from 'react'
 import Photo from './Photo'
 import PropTypes from 'prop-types'
+import {Link} from 'react-router-dom'
 
 function PhotoFrame(props) {
     return (
         <div>
-            <button className="addIcon">+</button>
+            <Link to="/AddPhoto" className="addIcon"></Link> 
             <div className="photo-grid">
                 {props.photoBlock.map((singlephoto, index) => <Photo key={index} finalPhoto={singlephoto} onRemovePhoto ={props.onRemovePhoto} />)}
             </div>
