@@ -10,18 +10,35 @@ class Main extends Component {
 
         super()
         this.state = {
-            allPhotos: []
+            allPhotos:  [{
+                id: "0",
+                description: "beautiful sea",
+                imageLink: "https://picsum.photos/800/600?image=14"
+            }, {
+                id: "1",
+                description: "Coffee cup",
+                imageLink: "https://picsum.photos/800/600?image=30"
+            }, {
+                id: "2",
+                description: "Freedom",
+                imageLink: "https://picsum.photos/800/600?image=50"
+            }, {
+                id: "3",
+                description: "Farm",
+                imageLink: "https://picsum.photos/800/600?image=85"
+            }]
         }
         this.removePhotos = this.removePhotos.bind(this);
+        this.addPhoto = this.addPhoto.bind(this);
     }
 
     componentDidMount() {
 
-        const data = SimulateDB();
+      /*  const data = SimulateDB();
         console.log(data);
         this.setState({
             allPhotos: data
-        })
+        })*/
     }
 
     componentDidUpdate(prevState, preProps) {
@@ -29,6 +46,11 @@ class Main extends Component {
         console.log(this.state)
     }
 
+    addPhoto(photoadded) {
+        this.setState((state) => ({
+            allPhotos : state.allPhotos.concat([photoadded])
+        }))
+    }
 
     removePhotos(photoremoved) {
 
@@ -46,13 +68,19 @@ class Main extends Component {
                         <PhotoFrame photoBlock={this.state.allPhotos} onRemovePhoto={this.removePhotos} />
                     </div>
                 )} />
-                 <Route exact path="/AddPhoto" component={AddPhoto} />
+                 <Route exact path="/AddPhoto"  render={() => (
+                     <AddPhoto onAddPhoto={(addedPhoto) => 
+                        {
+                            this.addPhoto(addedPhoto)
+                        }
+                    }/>
+                 )} />
                 
             </div>
         );
     }
 }
-
+/*
 function SimulateDB() {
     return (
         [{
@@ -74,5 +102,6 @@ function SimulateDB() {
         }]
     );
 }
+*/
 
 export default Main
