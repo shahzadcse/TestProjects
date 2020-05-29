@@ -68,10 +68,11 @@ class Main extends Component {
                         <PhotoFrame photoBlock={this.state.allPhotos} onRemovePhoto={this.removePhotos} />
                     </div>
                 )} />
-                 <Route exact path="/AddPhoto"  render={() => (
+                 <Route exact path="/AddPhoto"  render={({history}) => (
                      <AddPhoto onAddPhoto={(addedPhoto) => 
                         {
                             this.addPhoto(addedPhoto)
+                            history.push('/')
                         }
                     }/>
                  )} />
