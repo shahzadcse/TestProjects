@@ -26,7 +26,7 @@ class Main extends Component {
                     </div>
                 )} />
                  <Route exact path="/AddPhoto"  render={({history}) => (
-                     <AddPhoto {...this.props} />
+                     <AddPhoto {...this.props} onHistory={history} />
                  )} />
                 
             </div>
