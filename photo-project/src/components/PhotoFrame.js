@@ -20,7 +20,7 @@ function PhotoFrame(props) {
 
 PhotoFrame.propTypes = {
     photoBlock: PropTypes.array.isRequired,
-    onRemovePhoto: PropTypes.func.isRequired  
+   // onRemovePhoto: PropTypes.func.isRequired  
 }
 
 export default PhotoFrame 
