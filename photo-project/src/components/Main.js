@@ -15,7 +15,7 @@ class Main extends Component {
     }
 
    componentDidMount() {
-       this.props.dispatch(removePhoto(1))
+       this.props.removePhoto(1)
    }
   
 
