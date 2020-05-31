@@ -25,14 +25,9 @@ class Main extends Component {
                         {/* {...this.props} will equals to this.props.allPhotos  this.props.removePhoto */}
                     </div>
                 )} />
-                 {/* <Route exact path="/AddPhoto"  render={({history}) => (
-                     <AddPhoto onAddPhoto={(addedPhoto) => 
-                        {
-                            this.addPhoto(addedPhoto)
-                            history.push('/')
-                        }
-                    }/>
-                 )} /> */}
+                 <Route exact path="/AddPhoto"  render={({history}) => (
+                     <AddPhoto {...this.props} />
+                 )} />
                 
             </div>
         );
