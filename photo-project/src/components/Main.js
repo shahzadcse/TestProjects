@@ -9,15 +9,10 @@ class Main extends Component {
 
     constructor() {
 
-        super()
-        
+        super() 
        
     }
-
-   componentDidMount() {
-       this.props.removePhoto(1)
-   }
-  
+ 
 
     render() {
         console.log(this.props)
@@ -26,7 +21,8 @@ class Main extends Component {
                 <Route exact path="/" render={() => (
                     <div>
                         <Title title={"Photo App"} />
-                        <PhotoFrame photoBlock={this.props.allPhotos}  />
+                        <PhotoFrame {...this.props}  />
+                        {/* {...this.props} will equals to this.props.allPhotos  this.props.removePhoto */}
                     </div>
                 )} />
                  {/* <Route exact path="/AddPhoto"  render={({history}) => (

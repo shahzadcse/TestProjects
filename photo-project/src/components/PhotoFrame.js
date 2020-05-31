@@ -8,18 +8,18 @@ function PhotoFrame(props) {
         <div>
             <Link to="/AddPhoto" className="addIcon"></Link> 
             <div className="photo-grid">
-                {props.photoBlock
+                {props.allPhotos
                 .sort(function(x,y) {
                         return y.id - x.id
                 })
-                .map((singlephoto, index) => <Photo key={index} finalPhoto={singlephoto} onRemovePhoto ={props.onRemovePhoto} />)}
+                .map((singlephoto, index) => <Photo key={index} finalPhoto={singlephoto}  {...props}  />)}
             </div>
         </div>
     );
 } 
 
 PhotoFrame.propTypes = {
-    photoBlock: PropTypes.array.isRequired,
+    allPhotos: PropTypes.array.isRequired,
    // onRemovePhoto: PropTypes.func.isRequired  
 }
 

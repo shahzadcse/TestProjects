@@ -11,7 +11,7 @@ function Photo(props) {
             <div className="button-container">
                 <button className="button" onClick={
                     () => {
-                        props.onRemovePhoto(frame)
+                        props.removePhoto(1) 
                     }
                 }>Remove</button>
             </div>
