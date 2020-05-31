@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PhotoFrame from './PhotoFrame'
 import Title from './Title'
 import AddPhoto from './AddPhoto'
-import { Route } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 import {removePhoto} from '../redux/actions'
 
 class Main extends Component {
@@ -18,9 +18,11 @@ class Main extends Component {
         console.log(this.props)
         return (
             <div>
+                <Link to="/">
+                    <h1>PhotoApp</h1>
+                </Link>
                 <Route exact path="/" render={() => (
                     <div>
-                        <Title title={"Photo App"} />
                         <PhotoFrame {...this.props}  />
                         {/* {...this.props} will equals to this.props.allPhotos  this.props.removePhoto */}
                     </div>
