@@ -3,6 +3,7 @@ import PhotoFrame from './PhotoFrame'
 import Title from './Title'
 import AddPhoto from './AddPhoto'
 import { Route } from 'react-router-dom'
+import {removePhoto} from '../redux/actions'
 
 class Main extends Component {
 
@@ -13,11 +14,13 @@ class Main extends Component {
        
     }
 
-   
+   componentDidMount() {
+       this.props.dispatch(removePhoto(1))
+   }
   
 
     render() {
-        
+        console.log(this.props)
         return (
             <div>
                 <Route exact path="/" render={() => (
