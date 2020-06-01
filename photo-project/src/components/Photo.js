@@ -7,7 +7,7 @@ function Photo(props) {
     const frame = props.finalPhoto;
     return (
         <figure className="figure">
-            <Link to={'single'}>
+            <Link to={`/single/${frame.id}`}>
                 <img className="photo" src={frame.imageLink} alt="{frame.description}" />
             </Link> 
             <figcaption>{frame.description}</figcaption>

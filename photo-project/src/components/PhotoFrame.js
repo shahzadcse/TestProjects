@@ -12,7 +12,7 @@ function PhotoFrame(props) {
                 .sort(function(x,y) {
                         return y.id - x.id
                 })
-                .map((singlephoto, index) => <Photo key={index} index={index} finalPhoto={singlephoto}  {...props}  />)}
+                .map((singlephoto, index) => <Photo key={index} index={index} finalPhoto={singlephoto} {...props}  />)}
             </div>
         </div>
     );
