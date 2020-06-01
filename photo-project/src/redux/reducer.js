@@ -3,7 +3,9 @@ import {combineReducers} from 'redux'
 
 function comments( state = [], action) {
     switch(action.type) {
-        case 'COMMENT_PHOTO' : return [...state, action.comment]
+        case 'ADD_COMMENT' : 
+            console.log(action.photoId)
+        return [...state, action.comment]
         default : return state
     }
 }

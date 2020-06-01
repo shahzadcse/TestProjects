@@ -9,11 +9,11 @@ class Single extends Component {
         const id = Number(match.params.id)
         //fetching single photo
         const photo = allPhotos.find((photo) => photo.id === id)
-        console.log(photo)
+        const comments = this.props.comments 
         return (
             <div className="single-photo">
                 <Photo finalPhoto={photo} />
-                <Comments addComment={this.props.addComment} />
+                <Comments addComment={this.props.addComment} comments={comments} id= {id} />
             </div>
         )
     }
