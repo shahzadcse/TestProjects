@@ -8,7 +8,7 @@ function comments( state = {}, action) {
                 return {...state, [action.photoId] : [action.comment]}
             }
             else {
-                return {...state, [action.photoId] : {...state[action.photoId]}}
+                return {...state, [action.photoId] : [...state[action.photoId], action.comment]}
             }
        
         default : return state
