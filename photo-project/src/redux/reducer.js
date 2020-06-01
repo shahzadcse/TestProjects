@@ -1,14 +1,23 @@
-import allPhotos from '../data/allPhotos'
+import _allPhotos from '../data/allPhotos'
+import {combineReducers} from 'redux'
 
-const allPhotosReducer = function(state = allPhotos , action) {
+function comments( state = [], action) {
+    switch(action.type) {
+        case 'COMMENT_PHOTO' : return [...state, action.comment]
+        default : return state
+    }
+}
+
+function allPhotos(state = _allPhotos , action) {
     
     switch(action.type) {
         case 'REMOVE_PHOTO' : return [...state.slice(0, action.index), ...state.slice(action.index + 1)]
         case 'ADD_PHOTO' : return [...state,action.photo]
         default: return state
-
     }
  
 }
 
-export default allPhotosReducer
+const rootReducer = combineReducers({comments, allPhotos})
+
+export default rootReducer

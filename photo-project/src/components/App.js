@@ -6,7 +6,8 @@ import * as actions from '../redux/actions'
 
 function mapStoreToProps (state){
     return {
-        allPhotos  : state
+        allPhotos  : state.allPhotos,
+        comments : state.comments
     }
 }
 
