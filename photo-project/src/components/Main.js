@@ -3,16 +3,17 @@ import PhotoFrame from './PhotoFrame'
 import Title from './Title'
 import AddPhoto from './AddPhoto'
 import { Link, Route } from 'react-router-dom'
-import {removePhoto} from '../redux/actions'
+import { removePhoto } from '../redux/actions'
+import Single from './Single'
 
 class Main extends Component {
 
     constructor() {
 
-        super() 
-       
+        super()
+
     }
- 
+
 
     render() {
         console.log(this.props)
@@ -23,14 +24,18 @@ class Main extends Component {
                 </Link>
                 <Route exact path="/" render={() => (
                     <div>
-                        <PhotoFrame {...this.props}  />
+                        <PhotoFrame {...this.props} />
                         {/* {...this.props} will equals to this.props.allPhotos  this.props.removePhoto */}
                     </div>
                 )} />
-                 <Route exact path="/AddPhoto"  render={({history}) => (
-                     <AddPhoto {...this.props} onHistory={history} />
-                 )} />
-                
+                <Route exact path="/AddPhoto" render={({ history }) => (
+                    <AddPhoto {...this.props} onHistory={history} />
+                )} />
+
+                <Route exact path="/single" render={({ history }) => (
+                    <Single />
+                )} />
+
             </div>
         );
     }

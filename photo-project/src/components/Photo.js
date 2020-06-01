@@ -1,12 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {Link} from 'react-router-dom'
 
 function Photo(props) {
     
     const frame = props.finalPhoto;
     return (
         <figure className="figure">
-            <img className="photo" src={frame.imageLink} alt="{frame.description}" />
+            <Link to={'single'}>
+                <img className="photo" src={frame.imageLink} alt="{frame.description}" />
+            </Link> 
             <figcaption>{frame.description}</figcaption>
             <div className="button-container">
                 <button className="button" onClick={
