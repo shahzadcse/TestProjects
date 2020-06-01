@@ -1,11 +1,16 @@
 import _allPhotos from '../data/allPhotos'
 import {combineReducers} from 'redux'
 
-function comments( state = [], action) {
+function comments( state = {}, action) {
     switch(action.type) {
         case 'ADD_COMMENT' : 
-            console.log(action.photoId)
-        return [...state, action.comment]
+            if(!state[action.photoId]) {
+                return {...state, [action.photoId] : [action.comment]}
+            }
+            else {
+                return {...state, [action.photoId] : {...state[action.photoId]}}
+            }
+       
         default : return state
     }
 }

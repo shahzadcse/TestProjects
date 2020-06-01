@@ -14,16 +14,17 @@ class Comments extends Component {
     }
 
 
-    render() {        
+    render() {   
+        console.log(this.props.comments)     
         return (
             <div className="comment"> 
-                {this.props.comments.map((comment, index) => {
+                {/* {this.props.comments.map((comment, index) => {
                         return (
                             <p key={index}>
                                 {comment}
                             </p>
                         )
-                })}           
+                })}            */}
                 <form className="comment-form" onSubmit={this.handleSubmit}>
                     <input type="text" name="comment" placeholder="Add comments here" />
                     <input type="submit" hidden />
