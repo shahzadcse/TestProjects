@@ -10,7 +10,7 @@ class Comments extends Component {
         e.preventDefault()
         const comment = e.target.elements.comment.value
         this.props.addComment(comment, this.props.id)
-        e.target.elements.comment.value = ''
+        e.target.elements.comment.value  = ''
     }
 
 

@@ -35,6 +35,7 @@ class Main extends Component {
                 <Route exact path="/single/:id" render={(params) => (
                     <Single {...this.props} {...params}  />
                 )} />
+ 
 
             </div>
         );
