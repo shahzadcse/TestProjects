@@ -8,12 +8,9 @@ import Single from './Single'
 
 class Main extends Component {
 
-    constructor() {
-
-        super()
-
-    }
-
+ componentDidMount() {
+     this.props.startLoadingPhotos()
+ }
 
     render() {
         console.log(this.props)
