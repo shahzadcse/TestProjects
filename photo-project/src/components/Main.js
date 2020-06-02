@@ -1,15 +1,24 @@
 import React, { Component } from 'react'
 import PhotoFrame from './PhotoFrame'
-import Title from './Title'
 import AddPhoto from './AddPhoto'
 import { Link, Route } from 'react-router-dom'
-import { removePhoto } from '../redux/actions'
 import Single from './Single'
 
 class Main extends Component {
 
+    state = {
+        loading : true
+    }
+
  componentDidMount() {
-     this.props.startLoadingPhotos()
+     this.props.startLoadingPhotos().then( () => {
+        this.setState( {
+            loading: false
+        })
+     })
+
+     this.props.startLoadingComments()
+
  }
 
     render() {
@@ -21,7 +30,7 @@ class Main extends Component {
                 </Link>
                 <Route exact path="/" render={() => (
                     <div>
-                        <PhotoFrame {...this.props} />
+                        <PhotoFrame {...this.props} loading={this.state.loading} />
                         {/* {...this.props} will equals to this.props.allPhotos  this.props.removePhoto */}
                     </div>
                 )} />
@@ -30,7 +39,7 @@ class Main extends Component {
                 )} />
 
                 <Route exact path="/single/:id" render={(params) => (
-                    <Single {...this.props} {...params}  />
+                    <Single {...this.props} loading={this.state.loading}  {...params}  />
                 )} />
  
 

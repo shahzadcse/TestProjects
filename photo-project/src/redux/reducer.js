@@ -10,6 +10,9 @@ function comments( state = {}, action) {
             else {
                 return {...state, [action.photoId] : [...state[action.photoId], action.comment]}
             }
+        
+        case 'LOAD_COMMENTS' : 
+            return action.comments
        
         default : return state
     }
