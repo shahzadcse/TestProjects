@@ -19,13 +19,16 @@ class Single extends Component {
                 <div className="loader">Loading...</div>
             )
         }
-        else {
+        else if(photo){
             return (
                 <div className="single-photo">                    
                         <Photo {...this.props}  finalPhoto={photo} index={index} loading={this.props.loading}  id={id}/>   
                     <Comments startAddingComment={this.props.startAddingComment} comments={comments} id={id} />
                 </div>
             )
+        }
+        else {
+            return <h1>No Photo Found...</h1>
         }
 
       

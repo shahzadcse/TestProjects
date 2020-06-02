@@ -17,7 +17,11 @@ class Main extends Component {
         })
      })
 
-     this.props.startLoadingComments()
+     this.props.startLoadingComments().then( () => {
+        this.setState( {
+            loading: false
+        })
+     })
 
  }
 
@@ -28,9 +32,9 @@ class Main extends Component {
                 <Link to="/">
                     <h1>PhotoApp</h1>
                 </Link>
-                <Route exact path="/" render={() => (
+                <Route exact path="/" render={({ history }) => (
                     <div>
-                        <PhotoFrame {...this.props} loading={this.state.loading} />
+                        <PhotoFrame {...this.props} loading={this.state.loading} history={history}/>
                         {/* {...this.props} will equals to this.props.allPhotos  this.props.removePhoto */}
                     </div>
                 )} />
@@ -38,8 +42,8 @@ class Main extends Component {
                     <AddPhoto {...this.props} onHistory={history} />
                 )} />
 
-                <Route exact path="/single/:id" render={(params) => (
-                    <Single {...this.props} loading={this.state.loading}  {...params}  />
+                <Route exact path="/single/:id" render={(params, history) => (
+                    <Single {...this.props} loading={this.state.loading}  {...params} onHistory={history}  />
                 )} />
  
 

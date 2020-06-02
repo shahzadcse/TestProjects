@@ -22,8 +22,8 @@ function Photo(props) {
                 <div className="button-container">
                     <button className="button" onClick={
                         () => {
-                            props.startRemovingPhoto(props.index, frame.id)
-                           // props.history.push('/')
+                            props.startRemovingPhoto(props.index, frame.id)    
+                            props.history.push('/')                        
                         }
                     }>Remove</button>
                     <Link to={`/single/${frame.id}`}>

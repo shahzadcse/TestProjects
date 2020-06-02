@@ -17,7 +17,12 @@ class Comments extends Component {
 
 
     render() {   
-        
+        if(this.props.loading === true) {
+            return (
+                <div className="loader">Loading...</div>
+            )
+        }
+        else {
         return (
             <div className="comment"> 
                 {this.props.comments.map((comment, index) => {
@@ -33,6 +38,7 @@ class Comments extends Component {
                 </form>
             </div>
         )
+       }
     }
 }
 
