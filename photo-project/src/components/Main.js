@@ -5,10 +5,14 @@ import { Link, Route } from 'react-router-dom'
 import Single from './Single'
 
 class Main extends Component {
+    constructor() {
+        super()
 
-    state = {
-        loading : true
+       this.state = {
+            loading : true
+        }
     }
+
 
  componentDidMount() {
      this.props.startLoadingPhotos().then( () => {
