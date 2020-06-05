@@ -1,82 +1,56 @@
 import React, { Component } from 'react'
 import PhotoFrame from './PhotoFrame'
-import Title from './Title'
 import AddPhoto from './AddPhoto'
-import { Route } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
+import Single from './Single'
 
 class Main extends Component {
-
     constructor() {
-
         super()
-        this.state = {
-            allPhotos:  [{
-                id: "0",
-                description: "beautiful sea",
-                imageLink: "https://picsum.photos/800/600?image=14"
-            }, {
-                id: "1",
-                description: "Coffee cup",
-                imageLink: "https://picsum.photos/800/600?image=30"
-            }, {
-                id: "2",
-                description: "Freedom",
-                imageLink: "https://picsum.photos/800/600?image=50"
-            }, {
-                id: "3",
-                description: "Farm",
-                imageLink: "https://picsum.photos/800/600?image=85"
-            }]
+
+       this.state = {
+            loading : true
         }
-        this.removePhotos = this.removePhotos.bind(this);
-        this.addPhoto = this.addPhoto.bind(this);
     }
 
-    componentDidMount() {
 
-      /*  const data = SimulateDB();
-        console.log(data);
-        this.setState({
-            allPhotos: data
-        })*/
-    }
+ componentDidMount() {
+     this.props.startLoadingPhotos().then( () => {
+        this.setState( {
+            loading: false
+        })
+     })
 
-    componentDidUpdate(prevState, preProps) {
-        console.log(prevState.allPhotos)
-        console.log(this.state)
-    }
+     this.props.startLoadingComments().then( () => {
+        this.setState( {
+            loading: false
+        })
+     })
 
-    addPhoto(photoadded) {
-        this.setState((state) => ({
-            allPhotos : state.allPhotos.concat([photoadded])
-        }))
-    }
-
-    removePhotos(photoremoved) {
-
-        this.setState((state) => ({
-            allPhotos: state.allPhotos.filter((photo) => photo !== photoremoved)
-        }))
-    }
+ }
 
     render() {
+        console.log(this.props)
         return (
             <div>
-                <Route exact path="/" render={() => (
+                <Link to="/">
+                    <h1>PhotoApp</h1>
+                </Link>
+                <Route exact path="/" render={({ history }) => (
                     <div>
-                        <Title title={"Photo App"} />
-                        <PhotoFrame photoBlock={this.state.allPhotos} onRemovePhoto={this.removePhotos} />
+                        <PhotoFrame {...this.props} loading={this.state.loading} history={history}/>
+                        {/* {...this.props} will equals to this.props.allPhotos  this.props.removePhoto */}
                     </div>
                 )} />
-                 <Route exact path="/AddPhoto"  render={({history}) => (
-                     <AddPhoto onAddPhoto={(addedPhoto) => 
-                        {
-                            this.addPhoto(addedPhoto)
-                            history.push('/')
-                        }
-                    }/>
-                 )} />
-                
+                <Route exact path="/AddPhoto" render={({ history }) => (
+                    <AddPhoto {...this.props} onHistory={history} />
+                )} />
+
+                <Route exact path="/single/:id" render={(params, history) => (
+                    <Single {...this.props} loading={this.state.loading}  {...params} onHistory={history}  />
+                )} />
+ 
+
             </div>
         );
     }

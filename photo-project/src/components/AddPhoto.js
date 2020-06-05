@@ -15,12 +15,13 @@ class AddPhoto extends Component {
         const link = event.target.elements.link.value
         const description =event.target.elements.description.value 
         const photo = {
-            id : 0,
+            id : Number(new Date()),
             description : description,
             imageLink : link   
         }
         if( link && description) {
-            this.props.onAddPhoto(photo)
+            this.props.startAddingPhoto(photo)
+            this.props.onHistory.push('/')
         }
     }
 
