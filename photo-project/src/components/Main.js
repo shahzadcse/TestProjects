@@ -1,57 +1,68 @@
 import React, { Component } from 'react'
 import PhotoFrame from './PhotoFrame'
 import AddPhoto from './AddPhoto'
-import { Link, Route } from 'react-router-dom'
+import { Link, Route, BrowserRouter as Router } from "react-router-dom";
 import Single from './Single'
+import EditPhoto from './EditPhoto'
+
 
 class Main extends Component {
     constructor() {
         super()
 
-       this.state = {
-            loading : true
+        this.state = {
+            loading: true
         }
     }
 
 
- componentDidMount() {
-     this.props.startLoadingPhotos().then( () => {
-        this.setState( {
-            loading: false
+    componentDidMount() {
+        this.props.startLoadingPhotos().then(() => {
+            this.setState({
+                loading: false
+            })
         })
-     })
 
-     this.props.startLoadingComments().then( () => {
-        this.setState( {
-            loading: false
+        this.props.startLoadingComments().then(() => {
+            this.setState({
+                loading: false
+            })
         })
-     })
 
- }
+    }
 
     render() {
-        console.log(this.props)
+        
         return (
-            <div>
-                <Link to="/">
-                    <h1>PhotoApp</h1>
-                </Link>
-                <Route exact path="/" render={({ history }) => (
-                    <div>
-                        <PhotoFrame {...this.props} loading={this.state.loading} history={history}/>
-                        {/* {...this.props} will equals to this.props.allPhotos  this.props.removePhoto */}
-                    </div>
-                )} />
-                <Route exact path="/AddPhoto" render={({ history }) => (
-                    <AddPhoto {...this.props} onHistory={history} />
-                )} />
+            <Router>
+                <div>
 
-                <Route exact path="/single/:id" render={(params, history) => (
-                    <Single {...this.props} loading={this.state.loading}  {...params} onHistory={history}  />
-                )} />
- 
+                    <Link to="/">
+                        <h1>PhotoApp</h1>
+                    </Link>
 
-            </div>
+                    
+                        <Route exact path="/AddPhoto" render={({ history }) => (
+                            <AddPhoto {...this.props} onHistory={history} />
+
+                        )} />
+
+                        <Route exact path="/single/:id" render={(params, history) => (
+                            <Single {...this.props} loading={this.state.loading}  {...params} onHistory={history} />
+                        )} />
+
+                        <Route exact path="/EditPhoto/:id" render={(params, history) => (
+                            <div className="wrapper">
+                                <EditPhoto {...this.props} onHistory={history}  {...params} />
+                            </div>
+                        )} />
+                        <Route exact path="/" render={({ history }) => ( 
+                                <PhotoFrame {...this.props} loading={this.state.loading} history={history} /> 
+                            
+                        )} /> 
+                </div>
+            </Router>
+
         );
     }
 }

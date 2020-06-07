@@ -1,41 +1,37 @@
 import React, { Component } from 'react'
 
-
+import PhotoForm from './PhotoForm'
 
 
 class AddPhoto extends Component {
 
-    constructor(){
-        super()
-        this.handleSubmit = this.handleSubmit.bind(this)
+    constructor(props) {
+        super(props)
+       
+        this.onSubmit = this.onSubmit.bind(this)
+        
+     
     }
 
-    handleSubmit(event){
-        event.preventDefault();
-        const link = event.target.elements.link.value
-        const description =event.target.elements.description.value 
-        const photo = {
-            id : Number(new Date()),
-            description : description,
-            imageLink : link   
-        }
-        if( link && description) {
+    onSubmit(photo) {
+       
             this.props.startAddingPhoto(photo)
             this.props.onHistory.push('/')
-        }
+            this.props.onSubmit({
+                id: Number(new Date()),
+                description: this.state.description ,
+                imageLink : this.state.imageLink
+                
+            });
+       
     }
 
-    render(){
+    render(){ 
+
         return(
             <div>
                 <h1>Add New Photo</h1>
-                <div className="form">
-                    <form onSubmit={this.handleSubmit}>
-                        <input type="text" placeholder="Photo Link" name="link"/>
-                        <input type="text" placeholder="Photo Description" name="description" />
-                        <button>Submit</button>
-                    </form>
-                </div>
+                <PhotoForm  {...this.props} onSubmit={this.onSubmit}/>
             </div>
         )
     }

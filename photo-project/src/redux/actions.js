@@ -1,8 +1,8 @@
-import {database} from '../database/config'
+import { database } from '../database/config'
 
 export function startAddingPhoto(photo) {
     return (dispatch) => {
-        return database.ref('allPhotos').update({[photo.id] : photo}).then(() => {
+        return database.ref('allPhotos').update({ [photo.id]: photo }).then(() => {
             dispatch(addPhoto(photo))
         }).catch((error) => {
             console.log(error)
@@ -14,8 +14,8 @@ export function startLoadingPhotos() {
     return (dispatch) => {
         return database.ref('allPhotos').once('value').then((snapshot) => {
             let allPhotos = []
-            snapshot.forEach((childsnapshot) => {               
-                allPhotos.push( childsnapshot.val() )               
+            snapshot.forEach((childsnapshot) => {
+                allPhotos.push(childsnapshot.val())
             })
             dispatch(loadPhoto(allPhotos))
         }).catch((error) => {
@@ -24,19 +24,38 @@ export function startLoadingPhotos() {
     }
 }
 
-export function startRemovingPhoto( index, id) {
+ 
+
+export function startEditPhoto(photo, photoId) {
+      
+    return (dispatch) => {
+        return database.ref('allPhotos/' + photoId).set({
+            description: photo.description,
+            id : photoId,
+            imageLink : photo.imageLink
+        }).then(() => {
+            dispatch(editPhoto(photo))
+        }).catch((error) => {
+            console.log(error)
+        })
+    }
+
+}
+
+export function startRemovingPhoto(index, id) {
     return (dispatch) => {
         return database.ref(`allPhotos/${id}`).remove().then(() => {
             dispatch(removePhoto(index))
-        } ).catch((error) => {
+        }).catch((error) => {
             console.log(error)
         })
     }
 }
 
+
 export function startAddingComment(comment, photoId) {
     return (dispatch) => {
-        return database.ref('comments/'+photoId).push(comment).then(() => {
+        return database.ref('comments/' + photoId).push(comment).then(() => {
             dispatch(addComment(comment, photoId))
         }).catch((error) => {
             console.log(error)
@@ -46,7 +65,7 @@ export function startAddingComment(comment, photoId) {
 
 export function startLoadingComments() {
     return (dispatch) => {
-        return database.ref('comments').once('value').then((snapshot)=> {
+        return database.ref('comments').once('value').then((snapshot) => {
             let comments = {}
             snapshot.forEach((childsnapshot) => {
                 comments[childsnapshot.key] = Object.values(childsnapshot.val())
@@ -80,14 +99,23 @@ export function addComment(comment, photoId) {
 
 export function loadPhoto(allPhotos) {
     return {
-        type : 'LOAD_PHOTOS',
+        type: 'LOAD_PHOTOS',
         allPhotos
+    }
+}
+
+
+export function editPhoto(photo, photoId) {
+    return {
+        type: 'EDIT_PHOTO',
+        photo,
+        photoId
     }
 }
 
 export function loadComments(comments) {
     return {
-        type : 'LOAD_COMMENTS',
+        type: 'LOAD_COMMENTS',
         comments
     }
 }

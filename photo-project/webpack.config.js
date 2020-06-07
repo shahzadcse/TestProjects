@@ -1,3 +1,4 @@
+
 const path = require('path');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -8,11 +9,14 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
         chunkFilename: '[id].js',
-        publicPath: ''
+        publicPath: '/'
     },
     resolve: {
         extensions: ['.js', '.jsx']
     },
+    devServer: {
+    historyApiFallback: true
+  },
     module: {
         rules: [
             {
@@ -54,3 +58,4 @@ module.exports = {
         })
     ]
 };
+ 

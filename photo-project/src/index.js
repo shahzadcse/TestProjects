@@ -10,6 +10,8 @@ import {Provider} from 'react-redux'
 import App from './components/App'
 import {database} from './database/config'
 
+ 
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   rootReducer,
