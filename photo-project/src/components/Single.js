@@ -12,7 +12,7 @@ class Single extends Component {
         const photo = this.props.allPhotos.find((photo) => photo.id === id)
         const comments = this.props.comments[match.params.id] || []
         const index = this.props.allPhotos.findIndex((photo) => photo.id === id)
-
+        
        
         if(this.props.loading === true) {
             return (
@@ -20,10 +20,13 @@ class Single extends Component {
             )
         }
         else if(photo){
+          
             return (
-                <div className="single-photo">                    
-                        <Photo {...this.props}  finalPhoto={photo} index={index} loading={this.props.loading}  id={id}/>   
-                   
+                
+                <div className="single-photo">  
+                                        
+                        <Photo {...this.props}  finalPhoto={photo} index={index} loading={this.props.loading}  id={id}/>
+                        <Comments  {...this.props}  id={id} comments={comments} />
                 </div>
             )
         }

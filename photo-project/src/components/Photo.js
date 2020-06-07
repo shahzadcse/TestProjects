@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 
 function Photo(props) {
 
-    const frame = props.finalPhoto ;
-     
+    const frame = props.finalPhoto;
+
     if (props.loading === true) {
         return (
             <div className="loader">Loading...</div>
@@ -22,10 +22,13 @@ function Photo(props) {
                 <div className="button-container">
                     <button className="button" onClick={
                         () => {
-                            props.startRemovingPhoto(props.index, frame.id)    
-                            props.history.push('/')                        
+                            props.startRemovingPhoto(props.index, frame.id)
+                            props.history.push('/')
                         }
                     }>Remove</button>
+                    <Link to={`/EditPhoto/${frame.id}`}>
+                        <div className="button"> Edit </div>
+                    </Link>
                     <Link to={`/single/${frame.id}`}>
                         <div className="button">
                             <div className="comment-count">
