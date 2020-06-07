@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PhotoForm from './PhotoForm'
 import Single from './Single'
+import { withRouter } from 'react-router'
 
 
 class EditPhoto extends Component {
@@ -37,4 +38,6 @@ class EditPhoto extends Component {
         );
     }
 }
+
+EditPhoto = withRouter(EditPhoto);
 export default EditPhoto
