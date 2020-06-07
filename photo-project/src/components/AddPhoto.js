@@ -16,7 +16,7 @@ class AddPhoto extends Component {
     onSubmit(photo) {
        
             this.props.startAddingPhoto(photo)
-            this.props.onHistory.push('/')
+            this.props.history.push('/')
             this.props.onSubmit({
                 id: Number(new Date()),
                 description: this.state.description ,

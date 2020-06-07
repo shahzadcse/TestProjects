@@ -2,6 +2,7 @@ import React from 'react'
 import Photo from './Photo'
 import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
+ 
 
 function PhotoFrame(props) {
     return (
@@ -24,5 +25,7 @@ PhotoFrame.propTypes = {
     allPhotos: PropTypes.array.isRequired,
    // onRemovePhoto: PropTypes.func.isRequired  
 }
+
+ 
 
 export default PhotoFrame 

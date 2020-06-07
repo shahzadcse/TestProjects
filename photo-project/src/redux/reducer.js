@@ -24,8 +24,8 @@ function allPhotos(state = _allPhotos , action) {
     switch(action.type) {
         case 'REMOVE_PHOTO' : return [...state.slice(0, action.index), ...state.slice(action.index + 1)]
         case 'ADD_PHOTO' : return [...state,action.photo]
-        case 'EDIT_PHOTO' : return  [...state] ;
-        case 'LOAD_PHOTOS' : return  action.allPhotos ;
+        case 'EDIT_PHOTO' : return [...state]
+        case 'LOAD_PHOTOS' : return  action.allPhotos  
         default: return state
     }
  

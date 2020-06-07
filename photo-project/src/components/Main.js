@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import PhotoFrame from './PhotoFrame'
 import AddPhoto from './AddPhoto'
-import { Link, Route, BrowserRouter as Router } from "react-router-dom";
+import { Switch, Link, Route, BrowserRouter as Router } from "react-router-dom";
 import Single from './Single'
 import EditPhoto from './EditPhoto'
-
+ 
 
 class Main extends Component {
     constructor() {
@@ -32,35 +32,35 @@ class Main extends Component {
     }
 
     render() {
-        
+       
         return (
-            <Router>
-                <div>
 
-                    <Link to="/">
-                        <h1>PhotoApp</h1>
-                    </Link>
-
-                    
+            <Router> 
+                <Switch>
+                    <div>
+                        <Link to="/">
+                            <h1>PhotoApp</h1>
+                        </Link>
                         <Route exact path="/AddPhoto" render={({ history }) => (
-                            <AddPhoto {...this.props} onHistory={history} />
+                            <AddPhoto {...this.props} history={history} />
 
                         )} />
 
                         <Route exact path="/single/:id" render={(params, history) => (
-                            <Single {...this.props} loading={this.state.loading}  {...params} onHistory={history} />
+                            <Single {...this.props} loading={this.state.loading}  {...params} history={history} />
                         )} />
 
                         <Route exact path="/EditPhoto/:id" render={(params, history) => (
                             <div className="wrapper">
-                                <EditPhoto {...this.props} onHistory={history}  {...params} />
+                                <EditPhoto {...this.props} history={history}  {...params} />
                             </div>
                         )} />
-                        <Route exact path="/" render={({ history }) => ( 
-                                <PhotoFrame {...this.props} loading={this.state.loading} history={history} /> 
-                            
+                        <Route exact path="/" render={({ history }) => (
+                            <PhotoFrame {...this.props} loading={this.state.loading} history={history} />
+
                         )} /> 
-                </div>
+                          </div>
+                    </Switch> 
             </Router>
 
         );
